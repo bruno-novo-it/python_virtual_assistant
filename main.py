@@ -1,20 +1,18 @@
+import json
+import re
 import speech_recognition as sr
 from scripts.speaker import *
 from scripts.timeservice import *
 from scripts.util import *
-import re
-import json
 
 
-def is_youtube_search_action(recognized_text):
+def is_open_gmail_action(recognized_text):
     text = recognized_text.lower() #convert everything to lower case
-    return "search for" in text and "on youtube" in text
+    return "open gmail" in text
 
-def extract_youtube_search_term(recognized_text):
-    text = recognized_text.lower()
-    text = text.replace("search for","")
-    text = text.replace("on youtube","")
-    return text.strip() #remove any leading or trailing whitespace
+def is_open_webwhatsapp_action(recognized_text):
+    text = recognized_text.lower() #convert everything to lower case
+    return "open whatsapp" in text
 
 def main():
 
@@ -36,9 +34,10 @@ def main():
             #Here we will use simple if statements to map the captured text to appropriate actions.
             if "local time" in recognized_text:
                 tts_speaker.speak(TimeService().get_local_time())
-            #should open a youtube search page?, sentence to match: search for {searchterm} on youtube
-            if is_youtube_search_action(recognized_text):
-                open_page("https://www.youtube.com/results?search_query=" + extract_youtube_search_term(recognized_text))
+            if is_open_gmail_action(recognized_text):
+                open_page("https://www.google.com/gmail/")
+            if is_open_webwhatsapp_action(recognized_text):
+                open_page("https://web.whatsapp.com/")
             else:
                 tts_speaker.speak("I am sorry. I didn't get that!. There is no procedure available to handle your request")
         except sr.UnknownValueError:

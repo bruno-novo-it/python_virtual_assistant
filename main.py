@@ -6,6 +6,18 @@ from scripts.timeservice import *
 from scripts.util import *
 
 
+def is_asked_name(recognized_text):#When the user asks for the AI's name
+    text = recognized_text.lower()
+    return "what is your name" in text
+
+def is_greeted_by_user(recognized_text): #when greeted by user
+    text = recognized_text.lower() #convert everything to lower case
+    return "hello" in text
+
+def is_thanked_by_user_action(recognized_text): #When thanked by the user.
+      text = recognized_text.lower() # convert recognized text to lower case.
+      return "thank you" in text
+
 def is_open_gmail_action(recognized_text):
     text = recognized_text.lower() #convert everything to lower case
     return "open gmail" in text
@@ -38,6 +50,14 @@ def main():
                 open_page("https://www.google.com/gmail/")
             if is_open_webwhatsapp_action(recognized_text):
                 open_page("https://web.whatsapp.com/")
+            if is_greeted_by_user(recognized_text):
+                tts_speaker.speak("Hello! How can I help you today?")
+            if is_thanked_by_user_action(recognized_text):
+                tts_speaker.speak("Glad I could help.")
+            if is_asked_name(recognized_text):
+                tts_speaker.speak("I am waiting for you to give me a name, my creator.")
+
+
             else:
                 tts_speaker.speak("I am sorry. I didn't get that!. There is no procedure available to handle your request")
         except sr.UnknownValueError:

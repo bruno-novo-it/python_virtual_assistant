@@ -28,12 +28,19 @@ Run the script "main.py" from the directory containing it
 python3 main.py
 ```
 
-## Commands
+## Available Commands:
 
-Say:
+### Say:
 
-Open Gmail: Will open Gmail Page.
+* <strong> Hello: </strong> Will greet the user.
 
-Open Whatsapp: Will open Web WhatsApp Page.
+* <strong> Thank you: </strong> Will say she's glad she could help.
 
-Local time: Will check and tell your current local time.
+* <strong> What is your name: </strong> Will say she's waiting for her creator to give her a name.
+
+* <strong> Open Gmail:</strong > Will open Gmail Page on default browser.
+
+* <strong> Open Whatsapp:</strong> Will open Web WhatsApp Page on default browser
+
+* <strong> Local time:</strong> Will check and tell your current local 
+time.

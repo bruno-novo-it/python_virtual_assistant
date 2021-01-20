@@ -3,5 +3,5 @@
 From your terminal, navigate to this repository and then type:
 
 ```
-python3 calculator.py
+python3 calculator_mike.py
 ```

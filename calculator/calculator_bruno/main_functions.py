@@ -61,6 +61,7 @@ def calculate():
     # Build the full operation
     full_operation = first+operation+second
 
+    # Try -- Except block
     try:
         expression = eval(full_operation)
         print("\nThe results is: {}\n".format(expression))

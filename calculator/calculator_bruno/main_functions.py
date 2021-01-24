@@ -38,7 +38,7 @@ def calculate():
     second = None
     operation = None
 
-    # User input
+    # User first input
     first = input("Please enter the first number: ")
     while bool(re.match(r"^-?\d+\.?\d*$",first)) is False:
         print()
@@ -48,24 +48,31 @@ def calculate():
         print()
 
 
-
+    # User operation input
     operation = input('Please enter the operation: ')
+    while bool(re.match(r"^[\-\+\*\/]?$",operation)) is False:
+        print()
+        print("You haven't typed a valid operator! Please, try again")
+        print()
+        operation = input('Please enter the operation: ')
+        print()
+
+    # User second input
     second = input('Please enter the second number: ')
+    while bool(re.match(r"^-?\d+\.?\d*$",second)) is False:
+        print()
+        print("You have not typed a valid number! Please, try again")
+        print()
+        second = input("Please enter the second number: ")
+        print()
 
     # Build the full operation
     full_operation = first+operation+second
 
-    if operation in ('+','-','*','/'):
-        expression = eval(full_operation)
-        print()
-        print("The results is: {}".format(expression))
-        print()
-    else:
-        print()
-        print("You haven't typed a valid operator, please run the program again.")
-        print()
-        sys.exit("Exiting...")
-
+    expression = eval(full_operation)
+    print()
+    print("The results is: {}".format(expression))
+    print()
     run_again()
 
 ## Run the script again
@@ -79,7 +86,7 @@ def run_again():
         # The input can be 'n' or 'N'
         elif keep_calculating.upper() == 'N':
             print()
-            print("Bye Bye! See you later.")
+            sys.exit("Bye Bye! See you later.")
         else:
             run_again()
     else:

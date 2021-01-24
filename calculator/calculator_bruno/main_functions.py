@@ -59,9 +59,13 @@ def calculate():
     # Build the full operation
     full_operation = first+operation+second
 
-    expression = eval(full_operation)
-    print("\nThe results is: {}\n".format(expression))
-    run_again()
+    try:
+        expression = eval(full_operation)
+        print("\nThe results is: {}\n".format(expression))
+        run_again()
+    except ZeroDivisionError:
+        print("\nCan't divide by 0\n")
+        run_again()
 
 ## Run the script again
 def run_again():

@@ -41,38 +41,26 @@ def calculate():
     # User first input
     first = input("Please enter the first number: ")
     while bool(re.match(r"^-?\d+\.?\d*$",first)) is False:
-        print()
-        print("You have not typed a valid number! Please, try again")
-        print()
-        first = input("Please enter the first number: ")
-        print()
-
+        print("\nYou have not typed a valid number! Please, try again\n")
+        first = input("Please enter the first number: \n")
 
     # User operation input
     operation = input('Please enter the operation: ')
     while bool(re.match(r"^[\-\+\*\/]?$",operation)) is False:
-        print()
-        print("You haven't typed a valid operator! Please, try again")
-        print()
-        operation = input('Please enter the operation: ')
-        print()
+        print("\nYou haven't typed a valid operator! Please, try again\n")
+        operation = input("Please enter the operation: \n")
 
     # User second input
     second = input('Please enter the second number: ')
     while bool(re.match(r"^-?\d+\.?\d*$",second)) is False:
-        print()
-        print("You have not typed a valid number! Please, try again")
-        print()
-        second = input("Please enter the second number: ")
-        print()
+        print("\nYou have not typed a valid number! Please, try again\n")
+        second = input("Please enter the second number: \n")
 
     # Build the full operation
     full_operation = first+operation+second
 
     expression = eval(full_operation)
-    print()
-    print("The results is: {}".format(expression))
-    print()
+    print("\nThe results is: {}\n".format(expression))
     run_again()
 
 ## Run the script again
@@ -90,7 +78,5 @@ def run_again():
         else:
             run_again()
     else:
-        print()
-        print('You have not typed a valid answer! Please, type Y/y ou N/n.')
-        print()
+        print("\nYou have not typed a valid answer! Please, type Y/y ou N/n.\n")
         run_again()

@@ -5,6 +5,4 @@ INPUT: Numbers and equations
 OUTPUT: the result
 '''
 
-welcome()
-print_operations()
 calculate()

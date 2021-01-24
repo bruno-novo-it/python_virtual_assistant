@@ -42,19 +42,19 @@ def calculate():
     first = input("Please enter the first number: ")
     while bool(re.match(r"^-?\d+\.?\d*$",first)) is False:
         print("\nYou have not typed a valid number! Please, try again\n")
-        first = input("Please enter the first number: \n")
+        first = input("Please enter the first number: ")
 
     # User operation input
-    operation = input('Please enter the operation: ')
+    operation = input("Please enter the operation: ")
     while bool(re.match(r"^[\-\+\*\/]?$",operation)) is False:
         print("\nYou haven't typed a valid operator! Please, try again\n")
-        operation = input("Please enter the operation: \n")
+        operation = input("Please enter the operation: ")
 
     # User second input
     second = input('Please enter the second number: ')
     while bool(re.match(r"^-?\d+\.?\d*$",second)) is False:
         print("\nYou have not typed a valid number! Please, try again\n")
-        second = input("Please enter the second number: \n")
+        second = input("Please enter the second number: ")
 
     # Build the full operation
     full_operation = first+operation+second

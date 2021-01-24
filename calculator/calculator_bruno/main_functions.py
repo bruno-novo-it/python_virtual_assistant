@@ -21,6 +21,7 @@ def print_operations():
         - for subtraction
         * for multiplication
         / for division
+        ** for power
         % for modulo
     """)
 
@@ -47,7 +48,7 @@ def calculate():
 
     # User operation input
     operation = input("Please enter the operation: ")
-    while bool(re.match(r"^[\-\+\*\/\%]?$",operation)) is False:
+    while bool(re.match(r"^[\-\+\*\/\%]{1}[\*]?$",operation)) is False:
         print("\nYou haven't typed a valid operator! Please, try again\n")
         operation = input("Please enter the operation: ")
 
@@ -65,7 +66,10 @@ def calculate():
         print("\nThe results is: {}\n".format(expression))
         run_again()
     except ZeroDivisionError:
-        print("\nCan't divide by 0\n")
+        print("\nError: Can't divide by 0!!\n")
+        run_again()
+    except SyntaxError:
+        print("\nError: You entered a wrong operator!!\n")
         run_again()
 
 ## Run the script again

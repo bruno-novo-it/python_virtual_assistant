@@ -21,6 +21,7 @@ def print_operations():
         - for subtraction
         * for multiplication
         / for division
+        % for modulo
     """)
 
 ## Primary calculate function
@@ -46,7 +47,7 @@ def calculate():
 
     # User operation input
     operation = input("Please enter the operation: ")
-    while bool(re.match(r"^[\-\+\*\/]?$",operation)) is False:
+    while bool(re.match(r"^[\-\+\*\/\%]?$",operation)) is False:
         print("\nYou haven't typed a valid operator! Please, try again\n")
         operation = input("Please enter the operation: ")
 

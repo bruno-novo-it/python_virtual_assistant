@@ -120,12 +120,17 @@ class Calculator:
 
         # If user clicked "=", then compute the answer and display it
         elif value == '=':
-            if "%" in current_equation:
-                answer = str(eval(current_equation.replace("%","/100")))
-            else:
-                answer = str(eval(current_equation))
-            self.equation.delete(-1, tk.END)
-            self.equation.insert(0, answer)
+            try:
+                if "%" in current_equation:
+                    answer = str(eval(current_equation.replace("%","/100")))
+                else:
+                    answer = str(eval(current_equation))
+                self.equation.delete(-1, tk.END)
+                self.equation.insert(0, answer)
+            except ZeroDivisionError:
+                print("\nError: Can't divide by 0!!\n")
+            except SyntaxError:
+                print("\nError: User entered a wrong operator!!\n")
 
         # If user clicked any other button, then add it to the equation line
         else:

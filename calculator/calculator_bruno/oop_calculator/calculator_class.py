@@ -1,3 +1,5 @@
+# pylint: disable=W0123
+
 '''
 DOCSTRING: OOP Calculator using Python
 '''
@@ -110,14 +112,12 @@ class Calculator:
 
         #If user clicked "=", then compute the answer and display it
         elif value == '=':
-            answer = str(eval(current_equation))
+            if "%" in current_equation:
+                answer = str(eval(current_equation.replace("%","/100")))
+            else:
+                answer = str(eval(current_equation))
             self.equation.delete(-1, tk.END)
             self.equation.insert(0, answer)
-
-        # If user clicked "%", then compute the percentage
-        elif value == '%':
-            self.equation.delete(0, tk.END)
-            self.equation.insert(0, current_equation+"/100")
 
         #If user clicked any other button, then add it to the equation line
         else:

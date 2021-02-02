@@ -1,4 +1,6 @@
 
+# pylint: disable=W0123
+
 '''
 DOCSTRING: This script contains all necessary functions
 SOURCE OF INFORMATION: https://towardsdatascience.com/python-eval-built-in-function-601f87db191

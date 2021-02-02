@@ -114,6 +114,11 @@ class Calculator:
             self.equation.delete(-1, tk.END)
             self.equation.insert(0, answer)
 
+        # If user clicked "%", then compute the percentage
+        elif value == '%':
+            self.equation.delete(0, tk.END)
+            self.equation.insert(0, current_equation+"/100")
+
         #If user clicked any other button, then add it to the equation line
         else:
             self.equation.delete(0, tk.END)

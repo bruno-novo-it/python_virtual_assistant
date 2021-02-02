@@ -43,10 +43,34 @@ class Calculator:
         '''
 
         #Arrange the buttons into lists which represent calculator rows
-        row1=[self.add_button(7),self.add_button(8),self.add_button(9),self.add_button('+')]
-        row2=[self.add_button(4),self.add_button(5),self.add_button(6),self.add_button('-')]
-        row3=[self.add_button(1),self.add_button(2),self.add_button(3),self.add_button('*')]
-        row4=[self.add_button('c'),self.add_button(0),self.add_button('='),self.add_button('/')]
+        row1 = [
+                self.add_button(7),
+                self.add_button(8),
+                self.add_button(9),
+                self.add_button('/'),
+                self.add_button('c')
+        ]
+        row2 = [
+                self.add_button(4),
+                self.add_button(5),
+                self.add_button(6),
+                self.add_button('*'),
+                self.add_button('(')
+        ]
+        row3 = [
+                self.add_button(1),
+                self.add_button(2),
+                self.add_button(3),
+                self.add_button('-'),
+                self.add_button(')')
+        ]
+        row4 = [
+                self.add_button(0),
+                self.add_button('.'),
+                self.add_button('%'),
+                self.add_button('+'),
+                self.add_button('=')
+        ]
 
         #Assign each button to a particular location on the GUI
         count_row=1

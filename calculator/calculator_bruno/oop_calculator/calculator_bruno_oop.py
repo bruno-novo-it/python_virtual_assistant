@@ -14,7 +14,7 @@ if __name__=='__main__':
     # Tell our calculator class to use this window
     main_screen = Calculator(window)
 
-    # Settung Windows Min and Max size
+    # Setting Windows Min and Max size
     window.minsize(width=500, height=200)
     window.maxsize(width=800, height=300)
 

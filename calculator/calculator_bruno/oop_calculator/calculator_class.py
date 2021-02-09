@@ -5,6 +5,8 @@ DOCSTRING: OOP Calculator using Python
 '''
 
 import tkinter as tk
+import re # --> Regex used to evaluate the user input inside the program
+
 
 ## Create the calculator class
 class Calculator:
@@ -122,7 +124,14 @@ class Calculator:
         elif value == '=':
             try:
                 if "%" in current_equation:
-                    answer = str(eval(current_equation.replace("%","/100")))
+                    operation = re.findall(r'[\-\+\*\/]', current_equation)
+                    if operation:
+                        answer = current_equation.replace("%","")
+                        first_input = re.compile(r'[\-\+\*\/]').split(answer)[0]
+                        second_input = re.compile(r'[\-\+\*\/]').split(answer)[1]
+                        answer = float(first_input) * (1 - float(second_input) / 100.0)
+                    else:
+                        answer = str(eval(current_equation.replace("%","/100")))
                 else:
                     answer = str(eval(current_equation))
                 self.equation.delete(-1, tk.END)
